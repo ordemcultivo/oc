@@ -28,14 +28,15 @@
     @media(max-width:760px){.hero{padding-top:24px}.hero-grid{grid-template-columns:minmax(0,1fr);gap:26px;padding:24px 0}.hero h1{font-size:clamp(42px,8.5vw,60px);line-height:1.04;margin-bottom:20px}.hero-copy{font-size:14px;line-height:1.65}.hero-footnote{font-size:10px}.growth-art{padding:18px}.diagram{height:220px}.art-bottom p{font-size:21px}.art-bottom span{font-size:8px}.hero-strip{line-height:1.6}.art-label{font-size:8px}}
     .service-detail{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:255px;font-size:12px;color:var(--lime);border-bottom:1px solid #78906a;padding:14px 0 8px;margin-top:6px}.service-detail:hover span{transform:translate(3px,-3px)}.service-detail span{transition:transform .2s}.service-row h3 a:hover{color:var(--lime)}
   </style>
+<link rel="stylesheet" href="assets/navigation.css?v=1">
 </head>
 <body id="topo">
 <a class="skip" href="#principal">Pular para o conteúdo</a>
-<header><div class="wrap nav">
-  <a class="brand" href="#topo" aria-label="Ordem e Cultivo — início"><img class="brand-logo" src="assets/logo-ordem-e-cultivo.png" alt="OC — Ordem e Cultivo" width="112" height="84"></a>
-  <nav class="nav-links" id="navigation" aria-label="Navegação principal"><a href="#solucoes">Soluções</a><a href="#metodo">Como trabalhamos</a><a href="processos/">Processos</a><a href="https://ai.ordemcultivo.com.br/">OC-AI</a></nav>
-  <a class="nav-cta" href="https://wa.me/5547991653962" target="_blank" rel="noopener noreferrer">Vamos conversar <span class="arrow" aria-hidden="true">↗</span></a>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu +</button>
+<header class="oc-header"><div class="wrap nav">
+  <a class="brand" href="./" aria-label="Ordem e Cultivo — início"><img class="brand-logo" src="assets/logo-ordem-e-cultivo.png" alt="OC — Ordem e Cultivo" width="96" height="76"></a>
+  <nav class="nav-links" id="navigation" aria-label="Navegação principal"><a href="#solucoes">Soluções</a><a href="#metodo">Como trabalhamos</a><a href="growth-marketing/">Growth e Marketing</a><a href="governanca-de-ia/">Governança de IA</a><a class="nav-education" href="https://ai.ordemcultivo.com.br/">OC-AI <span aria-hidden="true">↗</span></a><a class="mobile-contact" href="https://wa.me/5547991653962" target="_blank" rel="noopener noreferrer">Falar no WhatsApp ↗</a></nav>
+  <a class="nav-cta" href="https://wa.me/5547991653962" target="_blank" rel="noopener noreferrer">Vamos conversar <span aria-hidden="true">↗</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu +</button>
 </div></header>
 <main id="principal">
   <section class="hero wrap">
@@ -112,12 +113,6 @@
 </main>
 <footer><div class="wrap"><a class="brand" href="#topo"><img class="brand-logo" src="assets/logo-ordem-e-cultivo.png" alt="OC — Ordem e Cultivo" width="112" height="84"></a><p>Marketing, criatividade, dados e tecnologia.<br><span class="cnpj">CNPJ: 54.238.767/0001-82</span><br>© 2026 Ordem e Cultivo.</p><a class="back" href="#topo">Voltar ao início ↑</a></div></footer>
 <script>
-  const menu = document.querySelector('.menu-toggle');
-  const navigation = document.querySelector('#navigation');
-  const closeMenu = () => { navigation.classList.remove('open'); menu.setAttribute('aria-expanded','false'); menu.textContent='Menu +'; };
-  menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded',String(open)); navigation.classList.toggle('open',open); menu.textContent = open ? 'Fechar −' : 'Menu +'; });
-  navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('keydown', e=>{if(e.key==='Escape' && menu.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}});
   const content = {
     growth:{label:'Marketing e crescimento',title:'Conecte o investimento à jornada do cliente.',text:'Examinamos sua oferta, canais, atendimento e relacionamento para identificar onde melhorar a aquisição, a conversão e o aproveitamento da carteira.',message:'Olá, quero conversar sobre aquisição e retenção de clientes.'},
     data:{label:'Dados e decisões',title:'Transforme informação dispersa em direção.',text:'Organizamos a mensuração e a leitura dos indicadores para que a direção acompanhe o desempenho, identifique gargalos e escolha as próximas ações com mais clareza.',message:'Olá, quero conversar sobre dados e indicadores da minha empresa.'},
@@ -127,5 +122,6 @@
   function activate(tab){tabs.forEach(t=>{t.setAttribute('aria-selected',String(t===tab));t.tabIndex=t===tab?0:-1;});const c=content[tab.dataset.key];document.querySelector('#panel-label').textContent=c.label;document.querySelector('#panel-title').textContent=c.title;document.querySelector('#panel-text').textContent=c.text;document.querySelector('#priority-link').href='https://wa.me/5547991653962?text='+encodeURIComponent(c.message);document.querySelector('#priority-panel').setAttribute('aria-labelledby',tab.id);}
   tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activate(tab));tab.addEventListener('keydown',e=>{let n;if(e.key==='ArrowDown')n=(i+1)%tabs.length;if(e.key==='ArrowUp')n=(i+tabs.length-1)%tabs.length;if(e.key==='Home')n=0;if(e.key==='End')n=tabs.length-1;if(n!==undefined){e.preventDefault();activate(tabs[n]);tabs[n].focus();}});});
 </script>
+<script src="assets/navigation.js?v=1" defer></script>
 </body>
 </html>
